@@ -1,0 +1,24 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	background-color: #bf5700;
+}
+
+
+h1{
+	color: white;
+	font-size: 48px;
+	font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+	margin-left: 20px;
+}
+
+
+p{
+	color: white;
+	font-size: 14px;
+	font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+	margin-left: 20px;
+}
