@@ -1,32 +1,46 @@
-angular.module('myApp', ['ngRoute'])
-	.controller('MyController', ['ngView', function(){
+var app = angular.module('myApp', ['ngRoute']);
+	app.controller('MyController', ['$scope', function($scope){
 
-	}])
+	}]);
 	
-	.controller('WelcomeController', function () {
+	app.controller('WelcomeController', ['$scope', '$location', function ($scope, $location) {
+		$scope.continueToNext = function() {
+			$location.path('/tweets');
+		};
+	}]);
+	
+	app.controller('TweetsController', ['$scope', function($scope) {
 		
-	})
+	}]);
 	
-	.controller('TweetsController', function() {
-		
-	})
+	/*app.controller('HomeController', ['$scope', 'photos', function($scope, photos) {
+  photos.success(function(data) {
+    $scope.photos = data;
+  });
+}]);
+
+app.controller('PhotoController', ['$scope', 'photos', '$routeParams', function($scope, photos, $routeParams) {
+  photos.success(function(data) {
+    $scope.detail = data[$routeParams.id];
+  });
+}]);
+
+*/
 	
-	.config(function($routeProvider){
+	app.config(function($routeProvider){
 		$routeProvider
 			.when('/', {
 				controller: "WelcomeController",
 				templateUrl: "views/welcome.html"
 			})
-			.when('', {
+			.when('/tweets', {
 				controller: "TweetsController",
-				templateUrl: "veiws/tweets.html"
+				templateUrl: "views/tweets.html"
 			})
 			.otherwise({
 				redirectTo: '/'
-			});
-		
-
-});
+			});	
+	});
 
 /*
 var app = angular.module('GalleryApp', ['ngRoute']);
