@@ -9,7 +9,28 @@ var app = angular.module('myApp', ['ngRoute']);
 		};
 	}]);
 	
-	app.controller('TweetsController', ['$scope', function($scope) {
+	app.controller('TweetsController', ['$scope', '$http', function($scope, $http) {
+		$scope.name = '';
+		$scope.twit = '';
+		$scope.tweets = [];
+		
+		$scope.submitTweet = function() {
+			//push to array, make spaces blank
+			var tweet = {
+				text: $scope.twit,
+				user: $scope.name
+			};
+			$http.post('/messages', tweet).then(successCallback, errorCallback);
+		};
+	
+		$http.get('/messages')
+			.success(function(tweets) {
+
+				
+			})
+			.error(function(err) {
+				console.error(err);
+			});
 		
 	}]);
 	

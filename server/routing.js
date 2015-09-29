@@ -5,7 +5,7 @@ var url = require('url');
 function getFileExtension(route) {
     var arr = route.split('.');
     if(arr.length<=1) {
-        return 'html'
+        return 'json'
     }
     return arr[arr.length -1].toLowerCase();
 }
@@ -43,7 +43,7 @@ function handleRequests(req, res) {
     var filePath;
     if(route === '/messages') {
         if(req.method === 'GET') {
-            filePath = path.join(__dirname, './messages.txt');
+            filePath = path.join(__dirname, './data.json');
             readFile(filePath, function(data){
                 writeResponse(res, data, header)    
             });
@@ -68,7 +68,7 @@ function handleRequests(req, res) {
 
 function writeTweet(tweet, res) {
     if(tweet.text && tweet.userName) {
-        var filePath = __dirname + '/messages.txt'; 
+        var filePath = __dirname + '/data.json'; 
         readFile(filePath, function(data){
             var tweets = JSON.parse(data);
             tweets.push(tweet);
