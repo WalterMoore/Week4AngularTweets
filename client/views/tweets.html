@@ -12,10 +12,11 @@
                 <div class="col-md-12">
                     <span>Enter Tweet:</span>
                     <input ng-model="twit" class="tweet-text" type="text" />
-                    <button class="tweet-button">Submit Tweet</button>
+                    <button class="tweet-button" ng-click="submitTweet()">Submit Tweet</button>
                 </div>
             </div>
             <div class="row tweets">
                {{name}}: {{twit}}  
             </div>
+            <div ng-repeat="tweet in tweets"> {{tweet.user}}: {{tweet.text}}. {{tweet.date | date:'medium'}} </div>
         </div>

@@ -67,7 +67,7 @@ function handleRequests(req, res) {
 }
 
 function writeTweet(tweet, res) {
-    if(tweet.text && tweet.userName) {
+    if(tweet.text && tweet.user) {
         var filePath = __dirname + '/data.json'; 
         readFile(filePath, function(data){
             var tweets = JSON.parse(data);
