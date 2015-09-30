@@ -46,19 +46,20 @@ var app = angular.module('myApp', ['ngRoute']);
 				.success(function() {
 					$scope.name = '';
 					$scope.twit = '';
-				$http.get('/messages')
-					.success(function(tweets) {
-					console.log('got tweets');
-					console.log(tweets);
-				tweets.forEach(function(tweet) {
-					console.log('i am inside the forEach function');
 					$scope.tweets.unshift(tweet);
-					//^returns tweets in reverse order
-					})
-				})
-			.error(function(err) {
-				console.error(err);
-			});
+					// $http.get('/messages')
+					// 	.success(function(tweets) {
+					// 		console.log('got tweets');
+					// 		console.log(tweets);
+					// 		tweets.forEach(function(tweet) {
+					// 			console.log('i am inside the forEach function');
+					// 			$scope.tweets.unshift(tweet);
+					// 			//^returns tweets in reverse order
+					// 		});
+					// 	})
+					// 	.error(function(err) {
+					// 		console.error(err);
+					// 	});
 				})
 				.error(function(err) {
 					console.error(err);
